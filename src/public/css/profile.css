@@ -7,10 +7,17 @@
 
 /* ===== CSS VARIABLES ===== */
 :root {
-    --profile-color-slate: #6c737e;
-    --profile-color-steel: #7393a7;
-    --profile-color-mist: #b5cfd8;
-    --profile-color-cloud: #e8ecf1;
+    /* Brand Color Palette */
+    --profile-color-primary: #B48B57;       /* Gold/Bronze - accent */
+    --profile-color-secondary: #6E6E73;     /* Grey - layout */
+    --profile-color-text: #000000;          /* Black - content */
+    
+    /* Legacy mapping */
+    --profile-color-slate: #6E6E73;
+    --profile-color-steel: #6E6E73;
+    --profile-color-mist: #B48B57;
+    --profile-color-cloud: #f5f5f7;
+    
     --profile-font-display: 'Cormorant Garamond', Georgia, serif;
     --profile-font-body: 'Inter', sans-serif;
 }
@@ -797,17 +804,17 @@ body.theme-dark .profile-hero {
 }
 
 body.theme-dark .profile-hero::before {
-    background: radial-gradient(ellipse, rgba(129, 140, 248, 0.2) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(180, 139, 87, 0.2) 0%, transparent 70%);
 }
 
 body.theme-dark .role-badge {
-    background: rgba(129, 140, 248, 0.2);
-    border-color: rgba(129, 140, 248, 0.4);
+    background: rgba(212, 168, 104, 0.2);
+    border-color: rgba(212, 168, 104, 0.4);
 }
 
 /* Info Items */
 body.theme-dark .info-label {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .info-value {
@@ -816,13 +823,13 @@ body.theme-dark .info-value {
 
 /* Action Buttons */
 body.theme-dark .btn-action {
-    background: #818cf8;
-    color: #0d0d11;
+    background: linear-gradient(135deg, #B48B57 0%, #D4A868 100%);
+    color: #fff;
 }
 
 body.theme-dark .btn-action:hover {
-    background: #a5b4fc;
-    color: #0d0d11;
+    background: linear-gradient(135deg, #D4A868 0%, #E8C895 100%);
+    color: #fff;
 }
 
 body.theme-dark .btn-outline-action {
@@ -832,9 +839,9 @@ body.theme-dark .btn-outline-action {
 }
 
 body.theme-dark .btn-outline-action:hover {
-    background: #818cf8;
+    background: #D4A868;
     color: #0d0d11;
-    border-color: #818cf8;
+    border-color: #D4A868;
 }
 
 /* Address Items */
@@ -847,7 +854,7 @@ body.theme-dark .address-detail {
 }
 
 body.theme-dark .default-badge {
-    background: #818cf8;
+    background: #D4A868;
     color: #0d0d11;
 }
 
@@ -876,8 +883,8 @@ body.theme-dark .status-badge.warning {
 }
 
 body.theme-dark .status-badge.info {
-    background: rgba(129, 140, 248, 0.15);
-    color: #818cf8;
+    background: rgba(180, 139, 87, 0.15);
+    color: #D4A868;
 }
 
 body.theme-dark .status-badge.danger {
@@ -904,16 +911,16 @@ body.theme-dark .progress-node.completed {
 }
 
 body.theme-dark .progress-node.completed .progress-dot {
-    background: #818cf8;
-    border-color: #818cf8;
+    background: #D4A868;
+    border-color: #D4A868;
 }
 
 body.theme-dark .progress-node.completed::before {
-    background: #818cf8;
+    background: #D4A868;
 }
 
 body.theme-dark .progress-node.active .progress-dot {
-    border-color: #818cf8;
+    border-color: #D4A868;
 }
 
 body.theme-dark .progress-node.is-cancelled {
@@ -930,7 +937,7 @@ body.theme-dark .empty-state {
 }
 
 body.theme-dark .empty-state i {
-    color: rgba(129, 140, 248, 0.3);
+    color: rgba(212, 168, 104, 0.3);
 }
 
 /* Order Header */
@@ -939,7 +946,7 @@ body.theme-dark .order-header {
 }
 
 body.theme-dark .order-header::before {
-    background: radial-gradient(ellipse, rgba(129, 140, 248, 0.2) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(180, 139, 87, 0.2) 0%, transparent 70%);
 }
 
 /* Order Detail Page */
@@ -963,8 +970,8 @@ body.theme-dark .status-tag.success {
 }
 
 body.theme-dark .status-tag.info {
-    background: rgba(129, 140, 248, 0.15);
-    color: #818cf8;
+    background: rgba(180, 139, 87, 0.15);
+    color: #D4A868;
 }
 
 body.theme-dark .status-tag.warning {
@@ -996,12 +1003,12 @@ body.theme-dark .timeline-node.completed {
 }
 
 body.theme-dark .timeline-node.completed .timeline-dot {
-    background: #818cf8;
-    border-color: #818cf8;
+    background: #D4A868;
+    border-color: #D4A868;
 }
 
 body.theme-dark .timeline-node.active .timeline-dot {
-    border-color: #818cf8;
+    border-color: #D4A868;
 }
 
 body.theme-dark .timeline-node.is-cancelled {
@@ -1094,7 +1101,7 @@ body.theme-dark .comment-section textarea {
 }
 
 body.theme-dark .comment-section textarea:focus {
-    border-color: #818cf8;
+    border-color: #D4A868;
 }
 
 body.theme-dark .btn-submit-review {

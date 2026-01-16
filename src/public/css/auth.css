@@ -7,10 +7,17 @@
 
 /* ===== CSS VARIABLES ===== */
 :root {
-    --auth-color-slate: #6c737e;
-    --auth-color-steel: #7393a7;
-    --auth-color-mist: #b5cfd8;
-    --auth-color-cloud: #e8ecf1;
+    /* Brand Color Palette */
+    --auth-color-primary: #B48B57;       /* Gold/Bronze - accent */
+    --auth-color-secondary: #6E6E73;     /* Grey - layout */
+    --auth-color-text: #000000;          /* Black - content */
+    
+    /* Legacy mapping */
+    --auth-color-slate: #6E6E73;
+    --auth-color-steel: #6E6E73;
+    --auth-color-mist: #B48B57;
+    --auth-color-cloud: #f5f5f7;
+    
     --auth-font-display: 'Cormorant Garamond', Georgia, serif;
     --auth-font-body: 'Inter', sans-serif;
 }
@@ -216,7 +223,7 @@ body.theme-dark .auth-card .form-control {
     font-weight: 600;
     border-radius: 14px;
     border: none;
-    background: var(--auth-color-slate);
+    background: linear-gradient(135deg, #B48B57 0%, #9A7449 100%);
     color: #fff;
     transition: all 0.4s ease;
     position: relative;
@@ -225,9 +232,9 @@ body.theme-dark .auth-card .form-control {
 }
 
 .btn-submit:hover {
-    background: var(--auth-color-steel);
+    background: linear-gradient(135deg, #9A7449 0%, #7D5F3A 100%);
     transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(108, 115, 126, 0.3);
+    box-shadow: 0 12px 35px rgba(180, 139, 87, 0.3);
 }
 
 /* ===== ALERTS ===== */
@@ -309,11 +316,11 @@ body.theme-dark .auth-wrapper {
 }
 
 body.theme-dark .auth-wrapper::before {
-    background: radial-gradient(ellipse, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(180, 139, 87, 0.15) 0%, transparent 70%);
 }
 
 body.theme-dark .auth-wrapper::after {
-    background: radial-gradient(ellipse, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(212, 168, 104, 0.1) 0%, transparent 70%);
 }
 
 body.theme-dark .brand-logo span {
@@ -337,7 +344,7 @@ body.theme-dark .auth-card .input-icon {
 }
 
 body.theme-dark .auth-card .form-control:focus + .input-icon {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .auth-card .form-control::placeholder {
@@ -349,8 +356,8 @@ body.theme-dark .auth-card .form-check-input {
 }
 
 body.theme-dark .auth-card .form-check-input:checked {
-    background-color: #818cf8;
-    border-color: #818cf8;
+    background-color: #D4A868;
+    border-color: #D4A868;
 }
 
 body.theme-dark .auth-card .form-check-label {
@@ -358,13 +365,13 @@ body.theme-dark .auth-card .form-check-label {
 }
 
 body.theme-dark .btn-submit {
-    background: #818cf8;
-    color: #0d0d11;
+    background: linear-gradient(135deg, #B48B57 0%, #D4A868 100%);
+    color: #fff;
 }
 
 body.theme-dark .btn-submit:hover {
-    background: #a5b4fc;
-    box-shadow: 0 12px 35px rgba(129, 140, 248, 0.3);
+    background: linear-gradient(135deg, #D4A868 0%, #E8C895 100%);
+    box-shadow: 0 12px 35px rgba(180, 139, 87, 0.3);
 }
 
 body.theme-dark .auth-footer {
@@ -376,11 +383,11 @@ body.theme-dark .auth-footer p {
 }
 
 body.theme-dark .auth-link {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .auth-link:hover {
-    color: #a5b4fc;
+    color: #E8C895;
 }
 
 body.theme-dark .back-link {

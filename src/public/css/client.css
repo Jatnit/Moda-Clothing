@@ -7,11 +7,20 @@
 
 /* ===== CSS VARIABLES ===== */
 :root {
-    --client-color-slate: #6c737e;
-    --client-color-steel: #7393a7;
-    --client-color-mist: #b5cfd8;
-    --client-color-cloud: #e8ecf1;
-    --client-color-cream: #f8f9fa;
+    /* Brand Color Palette */
+    --client-color-primary: #B48B57;       /* Gold/Bronze - headings, prices, buttons */
+    --client-color-secondary: #6E6E73;     /* Grey - layout divs */
+    --client-color-text: #000000;          /* Black - content text */
+    --client-color-bg: #00000014;          /* Light transparent - backgrounds */
+    
+    /* Legacy color mapping (for backward compatibility) */
+    --client-color-slate: #6E6E73;
+    --client-color-steel: #6E6E73;
+    --client-color-mist: #B48B57;
+    --client-color-cloud: #f5f5f7;
+    --client-color-cream: #fafafa;
+    
+    /* Typography */
     --client-font-display: 'Cormorant Garamond', Georgia, serif;
     --client-font-body: 'Inter', sans-serif;
 }
@@ -1156,11 +1165,11 @@ body.theme-dark .hero {
 }
 
 body.theme-dark .hero::before {
-    background: radial-gradient(ellipse, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(180, 139, 87, 0.15) 0%, transparent 70%);
 }
 
 body.theme-dark .hero::after {
-    background: radial-gradient(ellipse, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(212, 168, 104, 0.1) 0%, transparent 70%);
 }
 
 body.theme-dark .hero h1 {
@@ -1168,7 +1177,7 @@ body.theme-dark .hero h1 {
 }
 
 body.theme-dark .hero h1 span {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .hero .lead {
@@ -1182,17 +1191,17 @@ body.theme-dark .hero-badge {
 }
 
 body.theme-dark .hero-badge i {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .btn-primary-custom {
-    background: #818cf8;
-    color: #0d0d11;
+    background: #B48B57;
+    color: #fff;
 }
 
 body.theme-dark .btn-primary-custom:hover {
-    background: #a5b4fc;
-    box-shadow: 0 15px 40px rgba(129, 140, 248, 0.3);
+    background: #D4A868;
+    box-shadow: 0 15px 40px rgba(180, 139, 87, 0.3);
 }
 
 body.theme-dark .btn-secondary-custom {
@@ -1220,17 +1229,17 @@ body.theme-dark .hero-floating-card p {
 }
 
 body.theme-dark .hero-floating-card .number {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 /* Section Headers */
 body.theme-dark .section-label {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .section-label::before,
 body.theme-dark .section-label::after {
-    background: rgba(129, 140, 248, 0.3);
+    background: rgba(180, 139, 87, 0.3);
 }
 
 body.theme-dark .section-title {
@@ -1256,7 +1265,7 @@ body.theme-dark .product-card:hover {
 }
 
 body.theme-dark .product-badge {
-    background: #818cf8;
+    background: #B48B57;
 }
 
 body.theme-dark .product-action-btn {
@@ -1265,12 +1274,12 @@ body.theme-dark .product-action-btn {
 }
 
 body.theme-dark .product-action-btn:hover {
-    background: #818cf8;
+    background: #D4A868;
     color: #0d0d11;
 }
 
 body.theme-dark .product-category {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .product-name {
@@ -1321,8 +1330,8 @@ body.theme-dark .feature-list li {
 }
 
 body.theme-dark .feature-list li i {
-    background: rgba(129, 140, 248, 0.15);
-    color: #818cf8;
+    background: rgba(180, 139, 87, 0.15);
+    color: #D4A868;
 }
 
 /* Testimonials Section */
@@ -1331,7 +1340,7 @@ body.theme-dark .testimonials-section {
 }
 
 body.theme-dark .testimonials-section::before {
-    color: rgba(129, 140, 248, 0.03);
+    color: rgba(180, 139, 87, 0.03);
 }
 
 body.theme-dark .testimonial-card {
@@ -1345,7 +1354,7 @@ body.theme-dark .instagram-section {
 }
 
 body.theme-dark .instagram-overlay {
-    background: rgba(129, 140, 248, 0.9);
+    background: rgba(180, 139, 87, 0.9);
 }
 
 /* Newsletter Section */
@@ -1372,12 +1381,12 @@ body.theme-dark .newsletter-input::placeholder {
 }
 
 body.theme-dark .newsletter-btn {
-    background: #818cf8;
-    color: #0d0d11;
+    background: #B48B57;
+    color: #fff;
 }
 
 body.theme-dark .newsletter-btn:hover {
-    background: #a5b4fc;
+    background: #D4A868;
 }
 
 /* Shop Hero */
@@ -1386,16 +1395,16 @@ body.theme-dark .shop-hero {
 }
 
 body.theme-dark .shop-hero::before {
-    background: radial-gradient(ellipse, rgba(129, 140, 248, 0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(180, 139, 87, 0.15) 0%, transparent 70%);
 }
 
 body.theme-dark .shop-hero-cta {
-    background: #818cf8;
-    color: #0d0d11;
+    background: #B48B57;
+    color: #fff;
 }
 
 body.theme-dark .shop-hero-cta:hover {
-    background: #a5b4fc;
+    background: #D4A868;
 }
 
 body.theme-dark .feature-badge {
@@ -1404,7 +1413,7 @@ body.theme-dark .feature-badge {
 }
 
 body.theme-dark .feature-badge i {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 /* Product Detail Page */
@@ -1419,15 +1428,15 @@ body.theme-dark .gallery-thumbs button {
 }
 
 body.theme-dark .gallery-thumbs button.active {
-    border-color: #818cf8;
+    border-color: #D4A868;
 }
 
 body.theme-dark .gallery-thumbs button:hover {
-    border-color: rgba(129, 140, 248, 0.5);
+    border-color: rgba(180, 139, 87, 0.5);
 }
 
 body.theme-dark .brand-label {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .product-title {
@@ -1439,17 +1448,17 @@ body.theme-dark .price-label {
 }
 
 body.theme-dark .option-label {
-    color: #818cf8;
+    color: #D4A868;
 }
 
 body.theme-dark .pill.selected {
-    background: #818cf8;
-    color: #0d0d11;
-    border-color: #818cf8;
+    background: #B48B57;
+    color: #fff;
+    border-color: #B48B57;
 }
 
 body.theme-dark .pill:hover:not(.disabled) {
-    border-color: #818cf8;
+    border-color: #D4A868;
 }
 
 body.theme-dark .stock-status {
@@ -1461,13 +1470,13 @@ body.theme-dark .stock-status i {
 }
 
 body.theme-dark .btn-add-cart {
-    background: #818cf8;
-    color: #0d0d11;
+    background: #B48B57;
+    color: #fff;
 }
 
 body.theme-dark .btn-add-cart:hover:not(:disabled) {
-    background: #a5b4fc;
-    box-shadow: 0 12px 35px rgba(129, 140, 248, 0.3);
+    background: #D4A868;
+    box-shadow: 0 12px 35px rgba(180, 139, 87, 0.3);
 }
 
 body.theme-dark .mobile-cart-bar {
@@ -1476,8 +1485,8 @@ body.theme-dark .mobile-cart-bar {
 }
 
 body.theme-dark .mobile-cart-bar button {
-    background: #818cf8;
-    color: #0d0d11;
+    background: #B48B57;
+    color: #fff;
 }
 
 body.theme-dark .toast {

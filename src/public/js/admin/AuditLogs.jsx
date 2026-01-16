@@ -246,14 +246,16 @@ const AuditLogsPage = () => {
     <div className="audit-logs-page">
       <style>{`
         .audit-logs-page {
-          --color-slate: #6c737e;
-          --color-steel: #7393a7;
-          --color-mist: #b5cfd8;
-          --color-cloud: #e8ecf1;
+          --color-gold: #B48B57;
+          --color-gold-light: #D4A868;
+          --color-gold-dark: #9A7449;
+          --color-slate: #6E6E73;
+          --color-mist: #D4A868;
+          --color-cloud: #f5f5f7;
         }
 
         .page-header {
-          background: linear-gradient(135deg, var(--color-slate), var(--color-steel));
+          background: linear-gradient(135deg, #B48B57, #D4A868);
           color: white;
           padding: 2rem;
           border-radius: 16px;
@@ -360,13 +362,13 @@ const AuditLogsPage = () => {
         }
 
         .pagination-btn.active {
-          background: var(--color-slate);
+          background: #B48B57;
           color: white;
-          border-color: var(--color-slate);
+          border-color: #B48B57;
         }
 
         .modal-header {
-          background: linear-gradient(135deg, var(--color-slate), var(--color-steel));
+          background: linear-gradient(135deg, #B48B57, #D4A868);
           color: white;
         }
 
@@ -384,7 +386,7 @@ const AuditLogsPage = () => {
 
         .detail-label {
           font-weight: 600;
-          color: var(--color-steel);
+          color: #B48B57;
           font-size: 0.85rem;
         }
 
@@ -398,19 +400,19 @@ const AuditLogsPage = () => {
         }
 
         .form-control:focus, .form-select:focus {
-          border-color: var(--color-steel);
-          box-shadow: 0 0 0 3px rgba(115, 147, 167, 0.15);
+          border-color: #B48B57;
+          box-shadow: 0 0 0 3px rgba(180, 139, 87, 0.15);
         }
 
         .btn-filter {
-          background: var(--color-slate);
+          background: #B48B57;
           color: white;
           border: none;
           border-radius: 8px;
         }
 
         .btn-filter:hover {
-          background: var(--color-steel);
+          background: #9A7449;
           color: white;
         }
 
@@ -423,6 +425,113 @@ const AuditLogsPage = () => {
 
         .btn-reset:hover {
           background: var(--color-mist);
+        }
+
+        /* ===== DARK MODE ===== */
+        body.theme-dark .stat-card {
+          background: #1a1a1f;
+          border-color: rgba(255, 255, 255, 0.1);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        body.theme-dark .stat-card .stat-value {
+          color: #f0f0f3;
+        }
+
+        body.theme-dark .stat-card .stat-label {
+          color: #9898a0;
+        }
+
+        body.theme-dark .filter-card {
+          background: #1a1a1f;
+          border-color: rgba(255, 255, 255, 0.1);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        body.theme-dark .filter-card label {
+          color: #c8c8cc;
+        }
+
+        body.theme-dark .logs-table {
+          background: #1a1a1f;
+          border-color: rgba(255, 255, 255, 0.1);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        body.theme-dark .logs-table th {
+          background: #252529;
+          color: #c8c8cc;
+          border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.theme-dark .logs-table td {
+          color: #e0e0e5;
+          border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.theme-dark .logs-table tr:hover {
+          background: rgba(180, 139, 87, 0.08);
+        }
+
+        body.theme-dark .form-control,
+        body.theme-dark .form-select {
+          background: #252529;
+          border-color: rgba(255, 255, 255, 0.15);
+          color: #f0f0f3;
+        }
+
+        body.theme-dark .form-control::placeholder {
+          color: #6e6e73;
+        }
+
+        body.theme-dark .btn-view {
+          background: #B48B57;
+          color: #0d0d11;
+        }
+
+        body.theme-dark .btn-view:hover {
+          background: #D4A868;
+        }
+
+        body.theme-dark .btn-reset {
+          background: #252529;
+          color: #c8c8cc;
+        }
+
+        body.theme-dark .btn-reset:hover {
+          background: #333338;
+        }
+
+        body.theme-dark .pagination-btn {
+          background: #1a1a1f;
+          border-color: rgba(255, 255, 255, 0.15);
+          color: #c8c8cc;
+        }
+
+        body.theme-dark .pagination-btn:hover:not(:disabled) {
+          background: #252529;
+        }
+
+        body.theme-dark .modal-content {
+          background: #1a1a1f;
+          border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.theme-dark .modal-body {
+          color: #e0e0e5;
+        }
+
+        body.theme-dark .detail-value {
+          color: #e0e0e5;
+        }
+
+        body.theme-dark .bg-light {
+          background: #252529 !important;
+          color: #e0e0e5;
+        }
+
+        body.theme-dark .text-muted {
+          color: #9898a0 !important;
         }
       `}</style>
 

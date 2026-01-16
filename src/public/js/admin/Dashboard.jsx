@@ -224,7 +224,7 @@ const RevenueBar = ({ data, loading }) => {
               className="w-100 position-relative"
               style={{
                 height: `${height}px`,
-                background: "linear-gradient(180deg, #6366f1 0%, #8b5cf6 100%)",
+                background: "linear-gradient(180deg, #B48B57 0%, #D4A868 100%)",
                 borderRadius: "8px",
                 transition: "height 0.3s ease",
               }}
@@ -379,7 +379,7 @@ const DashboardPage = () => {
       title: "Tổng doanh thu",
       value: formatCurrency(summary?.totalRevenue || 0),
       icon: "bi-cash-stack",
-      color: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
+      color: "linear-gradient(135deg, #B48B57 0%, #D4A868 100%)",
     },
     {
       title: "Tổng đơn hàng",
@@ -449,7 +449,7 @@ const DashboardPage = () => {
             className="card border-0 shadow-sm h-100 text-white"
             style={{
               borderRadius: "16px",
-              background: "linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%)",
+              background: "linear-gradient(135deg, #7D5F3A 0%, #9A7449 50%, #B48B57 100%)",
             }}
           >
             <div className="card-body p-4 d-flex flex-column">
@@ -584,6 +584,34 @@ const DashboardPage = () => {
             transform: translateX(0);
             opacity: 1;
           }
+        }
+
+        /* Dark mode styles */
+        body.theme-dark .card {
+          background: #1a1a1f !important;
+          border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        body.theme-dark .card-body h3,
+        body.theme-dark .card-body h5 {
+          color: #f0f0f3;
+        }
+
+        body.theme-dark .table {
+          color: #e0e0e5;
+        }
+
+        body.theme-dark .table th {
+          color: #c8c8cc;
+          border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.theme-dark .table td {
+          border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.theme-dark .table-hover tbody tr:hover {
+          background-color: rgba(180, 139, 87, 0.08);
         }
       `}</style>
     </div>

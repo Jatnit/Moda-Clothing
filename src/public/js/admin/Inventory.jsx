@@ -151,7 +151,7 @@ const InventoryPage = () => {
                 </div>
                 <div
                   className="d-flex align-items-center justify-content-center"
-                  style={{ width: "56px", height: "56px", borderRadius: "14px", background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)" }}
+                  style={{ width: "56px", height: "56px", borderRadius: "14px", background: "linear-gradient(135deg, #B48B57 0%, #D4A868 100%)" }}
                 >
                   <i className="bi bi-boxes text-white" style={{ fontSize: "24px" }}></i>
                 </div>

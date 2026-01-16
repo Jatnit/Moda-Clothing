@@ -1,133 +1,128 @@
-<nav class="navbar navbar-expand-lg navbar-global fixed-top">
+<%# 
+  MODA STUDIO - Header Component
+  Rebuilt with clean design, no border/shadow artifacts
+%>
+<header class="moda-header" id="modaHeader">
     <div class="container">
-        <a class="navbar-brand" href="/">
-            <span class="brand-text">MODA STUDIO</span>
-        </a>
+        <div class="moda-header__inner">
+            <!-- Logo -->
+            <a class="moda-header__brand" href="/">
+                <span class="moda-header__brand-text">MODA STUDIO</span>
+            </a>
 
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarGlobal"
-            aria-controls="navbarGlobal" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-list" style="font-size: 24px;"></i>
-        </button>
+            <!-- Mobile Toggle -->
+            <button class="moda-header__toggle" type="button" id="navToggle" 
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="moda-header__toggle-bar"></span>
+                <span class="moda-header__toggle-bar"></span>
+                <span class="moda-header__toggle-bar"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarGlobal">
-            <ul class="navbar-nav mx-auto gap-lg-4">
-                <li class="nav-item">
-                    <a class="nav-link" href="/#collections">Bộ sưu tập</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/products">Sản phẩm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/#stories">Câu chuyện</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/#shop">Cửa hàng</a>
-                </li>
-            </ul>
+            <!-- Navigation Menu -->
+            <nav class="moda-header__nav" id="navMenu">
+                <ul class="moda-header__menu">
+                    <li class="moda-header__menu-item">
+                        <a class="moda-header__menu-link" href="/#collections">Bộ sưu tập</a>
+                    </li>
+                    <li class="moda-header__menu-item">
+                        <a class="moda-header__menu-link" href="/products">Sản phẩm</a>
+                    </li>
+                    <li class="moda-header__menu-item">
+                        <a class="moda-header__menu-link" href="/#stories">Câu chuyện</a>
+                    </li>
+                    <li class="moda-header__menu-item">
+                        <a class="moda-header__menu-link" href="/#shop">Cửa hàng</a>
+                    </li>
+                </ul>
+            </nav>
 
-            <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center mt-3 mt-lg-0">
+            <!-- Actions -->
+            <div class="moda-header__actions">
                 <% if (currentUser) { %>
-                    <div class="dropdown">
-                        <button class="btn btn-user-menu dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <span class="user-avatar">
-                                <%= (currentUser.username || currentUser.email || 'U' ).charAt(0).toUpperCase() %>
+                    <!-- Logged In User Dropdown -->
+                    <div class="moda-dropdown" id="userDropdown">
+                        <button class="moda-header__user-btn" type="button" id="userDropdownBtn"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span class="moda-header__user-avatar">
+                                <%= (currentUser.username || currentUser.email || 'U').charAt(0).toUpperCase() %>
                             </span>
-                            <span class="d-none d-md-inline ms-2"><%= currentUser.username ||
-                                    currentUser.email %></span>
+                            <span class="moda-header__user-name d-none d-md-inline">
+                                <%= currentUser.username || currentUser.email %>
+                            </span>
+                            <i class="bi bi-chevron-down moda-header__user-arrow"></i>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li class="dropdown-header small text-muted px-3 py-2">
-                                <i class="bi bi-person-circle me-2"></i>
-                                <%= currentUser.email %>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center gap-2"
-                                    href="/user/profile/<%= currentUser.id %>">
-                                    <i class="bi bi-person"></i>Thông tin tài khoản
+                        <div class="moda-dropdown__menu" id="userDropdownMenu">
+                            <div class="moda-dropdown__header">
+                                <i class="bi bi-person-circle"></i>
+                                <span><%= currentUser.email %></span>
+                            </div>
+                            <div class="moda-dropdown__divider"></div>
+                            <a class="moda-dropdown__item" href="/user/profile/<%= currentUser.id %>">
+                                <i class="bi bi-person"></i>
+                                <span>Thông tin tài khoản</span>
+                            </a>
+                            <% const userRoleId = Number(currentUser.roleId); %>
+                            <% if (userRoleId === 1 || userRoleId === 2 || userRoleId === 4 || userRoleId === 0) { %>
+                                <a class="moda-dropdown__item" href="/admin/dashboard">
+                                    <i class="bi bi-speedometer2"></i>
+                                    <span>Trang quản trị</span>
                                 </a>
-                            </li>
-                            <% const userRoleId=Number(currentUser.roleId); %>
-                                <% if (userRoleId===1 || userRoleId===2 || userRoleId===4 || userRoleId===0) { %>
-                                    <li>
-                                        <a class="dropdown-item d-flex align-items-center gap-2"
-                                            href="/admin/dashboard">
-                                            <i class="bi bi-speedometer2"></i>Trang quản trị
-                                        </a>
-                                    </li>
-                                    <% } %>
-                                        <li>
-                                            <form action="/user/theme" method="POST" class="m-0">
-                                                <% const nextTheme=theme==="dark" ? "light" : "dark" ; %>
-                                                    <input type="hidden" name="theme" value="<%= nextTheme %>">
-                                                    <button type="submit"
-                                                        class="dropdown-item d-flex align-items-center gap-2 w-100 text-start border-0 bg-transparent">
-                                                        <i
-                                                            class="bi bi-<%= nextTheme === 'dark' ? 'moon-stars' : 'sun' %>"></i>
-                                                        <%= nextTheme==="dark" ? "Chế độ tối" : "Chế độ sáng" %>
-                                                    </button>
-                                            </form>
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li>
-                                            <form action="/logout" method="POST" class="m-0">
-                                                <button type="submit"
-                                                    class="dropdown-item d-flex align-items-center gap-2 text-danger w-100 text-start border-0 bg-transparent">
-                                                    <i class="bi bi-box-arrow-right"></i>Đăng xuất
-                                                </button>
-                                            </form>
-                                        </li>
-                        </ul>
+                            <% } %>
+                            <div class="moda-dropdown__divider"></div>
+                            <form action="/logout" method="POST" class="m-0">
+                                <button type="submit" class="moda-dropdown__item moda-dropdown__item--danger">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Đăng xuất</span>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <% } else { %>
-                        <!-- Guest Actions - Modern Design -->
-                        <a class="btn btn-nav-ghost" href="/signin">
-                            <i class="bi bi-person me-1"></i>Đăng nhập
-                        </a>
-                        <a class="btn btn-nav-primary" href="/signup">
-                            <i class="bi bi-person-plus me-1"></i>Đăng ký
-                        </a>
-                        <% } %>
+                <% } else { %>
+                    <!-- Guest Actions -->
+                    <a class="moda-header__btn moda-header__btn--ghost" href="/signin">
+                        <i class="bi bi-person"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                    <a class="moda-header__btn moda-header__btn--primary" href="/signup">
+                        <i class="bi bi-person-plus"></i>
+                        <span>Đăng ký</span>
+                    </a>
+                <% } %>
 
-                            <!-- Dark Mode Toggle -->
-                            <button type="button" class="btn btn-theme-toggle" id="themeToggle" 
-                                aria-label="Toggle dark mode" title="Chuyển đổi giao diện">
-                                <span class="theme-icon theme-icon-sun">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="5"></circle>
-                                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                                    </svg>
-                                </span>
-                                <span class="theme-icon theme-icon-moon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                                    </svg>
-                                </span>
-                            </button>
+                <!-- Theme Toggle -->
+                <button type="button" class="moda-header__icon-btn" id="themeToggle" 
+                    aria-label="Toggle theme" title="Chuyển đổi giao diện">
+                    <span class="moda-header__theme-icon moda-header__theme-icon--sun">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </span>
+                    <span class="moda-header__theme-icon moda-header__theme-icon--moon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
 
-                            <!-- Cart Button - Modern Design -->
-                            <button type="button" class="btn btn-cart" id="openCartDrawer">
-                                <i class="bi bi-bag"></i>
-                                <span class="cart-badge" id="cartCount">
-                                    <%= (cartItems && cartItems.length) || 0 %>
-                                </span>
-                            </button>
+                <!-- Cart Button -->
+                <button type="button" class="moda-header__icon-btn moda-header__cart-btn" id="openCartDrawer">
+                    <i class="bi bi-bag"></i>
+                    <span class="moda-header__cart-badge" id="cartCount">
+                        <%= (cartItems && cartItems.length) || 0 %>
+                    </span>
+                </button>
             </div>
         </div>
     </div>
-</nav>
+</header>
 
 <!-- Cart Drawer -->
 <div class="cart-overlay" id="cartOverlay"></div>
@@ -135,9 +130,9 @@
     <div class="cart-drawer-header">
         <div>
             <h5 class="mb-0 fw-bold">Giỏ hàng</h5>
-            <small class="text-muted"><span id="cartItemCount">
-                    <%= (cartItems && cartItems.length) || 0 %>
-                </span> sản phẩm</small>
+            <small class="text-muted">
+                <span id="cartItemCount"><%= (cartItems && cartItems.length) || 0 %></span> sản phẩm
+            </small>
         </div>
         <button type="button" class="btn btn-close-cart" id="closeCartDrawer">
             <i class="bi bi-x-lg"></i>
@@ -145,60 +140,52 @@
     </div>
 
     <div class="cart-drawer-body" id="cartDrawerItems">
-        <% if (cartItems && cartItems.length> 0) { %>
+        <% if (cartItems && cartItems.length > 0) { %>
             <% cartItems.forEach(function(item) { %>
                 <div class="cart-item">
                     <div class="cart-item-image">
                         <% if (item.image) { %>
                             <img src="<%= item.image %>" alt="<%= item.name %>">
-                            <% } else { %>
-                                <i class="bi bi-image"></i>
-                                <% } %>
+                        <% } else { %>
+                            <i class="bi bi-image"></i>
+                        <% } %>
                     </div>
                     <div class="cart-item-details">
-                        <h6 class="cart-item-name">
-                            <%= item.name %>
-                        </h6>
+                        <h6 class="cart-item-name"><%= item.name %></h6>
                         <% if (item.variantLabel) { %>
-                            <small class="text-muted">
-                                <%= item.variantLabel %>
-                            </small>
-                            <% } %>
-                                <div class="cart-item-price">
-                                    <span class="qty">
-                                        <%= item.quantity %> ×
-                                    </span>
-                                    <span class="price">
-                                        <%= item.price.toLocaleString('vi-VN', { style: 'currency' , currency: 'VND' })
-                                            %>
-                                    </span>
-                                </div>
+                            <small class="text-muted"><%= item.variantLabel %></small>
+                        <% } %>
+                        <div class="cart-item-price">
+                            <span class="qty"><%= item.quantity %> ×</span>
+                            <span class="price">
+                                <%= item.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) %>
+                            </span>
+                        </div>
                     </div>
                     <div class="cart-item-total">
-                        <%= (item.price * item.quantity).toLocaleString('vi-VN', { style: 'currency' , currency: 'VND'
-                            }) %>
+                        <%= (item.price * item.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) %>
                     </div>
                 </div>
-                <% }) %>
-                    <% } else { %>
-                        <div class="cart-empty">
-                            <i class="bi bi-bag-x"></i>
-                            <p>Giỏ hàng trống</p>
-                            <a href="/products" class="btn btn-outline-dark btn-sm">Xem sản phẩm</a>
-                        </div>
-                        <% } %>
+            <% }) %>
+        <% } else { %>
+            <div class="cart-empty">
+                <i class="bi bi-bag-x"></i>
+                <p>Giỏ hàng trống</p>
+                <a href="/products" class="btn btn-outline-dark btn-sm">Xem sản phẩm</a>
+            </div>
+        <% } %>
     </div>
 
     <div class="cart-drawer-footer">
         <div class="cart-subtotal">
             <span>Tạm tính</span>
             <strong id="cartSubtotalAmount">
-                <%= (cartSubtotal || 0).toLocaleString('vi-VN', { style: 'currency' , currency: 'VND' }) %>
+                <%= (cartSubtotal || 0).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) %>
             </strong>
         </div>
-        <button class="btn btn-checkout-drawer" id="checkoutBtn" <% if (!cartItems || !cartItems.length) { %>disabled<%
-                } %>>
-                <i class="bi bi-credit-card me-2"></i>Thanh toán
+        <button class="btn btn-checkout-drawer" id="checkoutBtn" 
+            <% if (!cartItems || !cartItems.length) { %>disabled<% } %>>
+            <i class="bi bi-credit-card me-2"></i>Thanh toán
         </button>
         <p class="cart-note">Phí vận chuyển sẽ được tính ở bước thanh toán</p>
     </div>
@@ -207,6 +194,7 @@
 <link rel="stylesheet" href="/css/partials.css">
 
 <script>
+    // Cart Drawer functionality
     document.addEventListener("DOMContentLoaded", () => {
         const drawer = document.getElementById("cartDrawer");
         const overlay = document.getElementById("cartOverlay");
@@ -243,10 +231,7 @@
                 itemsContainer.innerHTML = items.map(item => `
                 <div class="cart-item">
                     <div class="cart-item-image">
-                        ${item.image
-                        ? `<img src="${item.image}" alt="${item.name}">`
-                        : '<i class="bi bi-image"></i>'
-                    }
+                        ${item.image ? `<img src="${item.image}" alt="${item.name}">` : '<i class="bi bi-image"></i>'}
                     </div>
                     <div class="cart-item-details">
                         <h6 class="cart-item-name">${item.name}</h6>
@@ -299,58 +284,80 @@
 </script>
 
 <script>
+    // Mobile Navigation Toggle
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("navToggle");
+        const nav = document.getElementById("navMenu");
+        
+        if (toggle && nav) {
+            toggle.addEventListener("click", () => {
+                const isOpen = toggle.getAttribute("aria-expanded") === "true";
+                toggle.setAttribute("aria-expanded", !isOpen);
+                nav.classList.toggle("moda-header__nav--open");
+                toggle.classList.toggle("moda-header__toggle--active");
+            });
+        }
+    });
+
+    // User Dropdown
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.getElementById("userDropdown");
+        const btn = document.getElementById("userDropdownBtn");
+        const menu = document.getElementById("userDropdownMenu");
+        
+        if (dropdown && btn && menu) {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const isOpen = btn.getAttribute("aria-expanded") === "true";
+                btn.setAttribute("aria-expanded", !isOpen);
+                menu.classList.toggle("moda-dropdown__menu--open");
+            });
+            
+            document.addEventListener("click", () => {
+                btn.setAttribute("aria-expanded", "false");
+                menu.classList.remove("moda-dropdown__menu--open");
+            });
+        }
+    });
+
     // Dark Mode Toggle
     document.addEventListener("DOMContentLoaded", () => {
         const themeToggle = document.getElementById("themeToggle");
         if (!themeToggle) return;
 
-        // Get current theme from body class
         const getCurrentTheme = () => {
             return document.body.classList.contains("theme-dark") ? "dark" : "light";
         };
 
-        // Toggle theme with animation
         const toggleTheme = async () => {
             const currentTheme = getCurrentTheme();
             const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-            // Add animation class
-            themeToggle.classList.add("animating");
+            themeToggle.classList.add("moda-header__icon-btn--animating");
 
-            // Update body class immediately for smooth visual feedback
             document.body.classList.remove(`theme-${currentTheme}`);
             document.body.classList.add(`theme-${newTheme}`);
-            
-            // Also update html class for consistency
             document.documentElement.classList.remove(`theme-${currentTheme}`);
             document.documentElement.classList.add(`theme-${newTheme}`);
 
-            // Store in localStorage for instant access on next page load
             localStorage.setItem("theme", newTheme);
 
-            // Send to server to persist preference (non-blocking)
             try {
                 await fetch("/user/theme", {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                    },
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: `theme=${newTheme}`,
                 });
             } catch (error) {
                 console.log("Theme preference saved locally only");
             }
 
-            // Remove animation class after animation completes
             setTimeout(() => {
-                themeToggle.classList.remove("animating");
+                themeToggle.classList.remove("moda-header__icon-btn--animating");
             }, 500);
         };
 
-        // Click handler
         themeToggle.addEventListener("click", toggleTheme);
-
-        // Keyboard accessibility
         themeToggle.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
@@ -359,8 +366,7 @@
         });
     });
     
-    // Apply theme from localStorage IMMEDIATELY (blocking)
-    // This runs synchronously before the rest of the page renders
+    // Apply theme from localStorage immediately
     (function() {
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {
