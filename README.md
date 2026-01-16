@@ -79,6 +79,22 @@
 | **Multer**     | File Upload Middleware |
 | **Cloudinary** | Cloud Image Storage    |
 
+### 🎨 CSS Architecture
+
+Dự án sử dụng kiến trúc **Modular CSS** với các file tách biệt theo chức năng:
+
+| File CSS        | Kích thước | Mô tả                                            |
+| :-------------- | :--------- | :----------------------------------------------- |
+| `main.css`      | ~8KB       | Base styles, CSS variables, typography           |
+| `auth.css`      | ~7KB       | Login, Register, Authentication pages            |
+| `client.css`    | ~24KB      | Homepage, Products list, Product detail          |
+| `checkout.css`  | ~10KB      | Checkout process, Cart, 404 Error page           |
+| `profile.css`   | ~15KB      | User profile, Orders, Order detail, Reviews      |
+| `partials.css`  | ~11KB      | Header, Footer, Navigation, Cart Drawer          |
+| `admin-pro.css` | ~18KB      | Admin Dashboard, Products, Categories, Inventory |
+
+**Design System:** UI/UX Pro Max với Glassmorphism, modern gradients, và responsive animations.
+
 ---
 
 ## 📂 Cấu trúc dự án (Project Structure)
@@ -152,8 +168,14 @@ Moda-Clothing/
     │   └── errors/           # Error pages
     │
     └── 📁 public/            # Static files
-        ├── css/
-        │   └── main.css
+        ├── css/              # Stylesheets
+        │   ├── main.css      # Base styles & CSS variables
+        │   ├── auth.css      # Login, Register pages
+        │   ├── client.css    # Home, Products, Product Detail
+        │   ├── checkout.css  # Checkout, Cart, Error pages
+        │   ├── profile.css   # User Profile, Orders, Reviews
+        │   ├── partials.css  # Header, Footer, Cart Drawer
+        │   └── admin-pro.css # Admin Dashboard & pages
         └── js/
             ├── client/
             └── admin/        # React Components (JSX)
@@ -436,7 +458,6 @@ CREATE DATABASE jwt CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 ---
-
 
 ## 👨‍💻 Tác giả
 

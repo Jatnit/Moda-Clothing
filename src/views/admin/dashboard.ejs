@@ -7,69 +7,89 @@
     <title>Moda Studio | Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin-pro.css">
     <style>
-        .dashboard-shell {
-            min-height: 480px;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .dashboard-shell { min-height: 480px; }
     </style>
 </head>
 
 <body class="<%= theme === 'dark' ? 'theme-dark' : 'theme-light' %>">
     <%- include('../partials/admin-layout-init') %>
-        <%- include('../partials/header') %>
+    <%- include('../partials/header') %>
 
-            <div class="admin-subnav" data-role="<%= currentUser ? currentUser.roleId : '' %>"
-                data-username="<%= currentUser ? (currentUser.username || currentUser.email) : '' %>">
-                <div id="admin-sidebar-root"></div>
-            </div>
+    <div class="admin-subnav" 
+         data-role="<%= currentUser ? currentUser.roleId : '' %>"
+         data-username="<%= currentUser ? (currentUser.username || currentUser.email) : '' %>">
+        <div id="admin-sidebar-root"></div>
+    </div>
 
-            <main class="admin-content-wrapper">
-                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
-                    <div>
-                        <p class="text-muted text-uppercase mb-1" style="letter-spacing: 0.3em; font-size: 0.75rem;">
-                            Admin
-                        </p>
-                        <h2 class="fw-bold mb-0">Bảng điều khiển doanh thu</h2>
-                        <small class="text-muted">Theo dõi hiệu suất bán hàng theo thời gian thực.</small>
-                    </div>
+    <main class="admin-content-wrapper">
+        <!-- Page Header -->
+        <div class="admin-page-header">
+            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
+                <div>
+                    <p class="page-label">
+                        <i class="bi bi-speedometer2"></i>
+                        Dashboard
+                    </p>
+                    <h1 class="page-title">Bảng điều khiển doanh thu</h1>
+                    <p class="page-subtitle">Theo dõi hiệu suất bán hàng theo thời gian thực</p>
                 </div>
+                <div class="d-flex gap-2">
+                    <button class="admin-btn admin-btn-secondary">
+                        <i class="bi bi-download"></i>
+                        Xuất báo cáo
+                    </button>
+                    <button class="admin-btn admin-btn-primary">
+                        <i class="bi bi-plus-lg"></i>
+                        Thêm đơn hàng
+                    </button>
+                </div>
+            </div>
+        </div>
 
-                <% if (typeof errorMessage !=='undefined' && errorMessage) { %>
-                    <div class="alert alert-danger">
-                        <%= errorMessage %>
-                    </div>
-                    <% } %>
+        <!-- Alerts -->
+        <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+        <div class="admin-alert admin-alert-danger">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span><%= errorMessage %></span>
+        </div>
+        <% } %>
 
-                        <% if (accessNotice) { %>
-                            <div class="alert alert-warning border-0 bg-warning-subtle text-dark">
-                                <i class="bi bi-exclamation-triangle me-2"></i>
-                                <%= accessNotice %>
-                            </div>
-                            <% } %>
+        <% if (accessNotice) { %>
+        <div class="admin-alert admin-alert-warning">
+            <i class="bi bi-shield-exclamation"></i>
+            <span><%= accessNotice %></span>
+        </div>
+        <% } %>
 
-                                <div id="admin-dashboard-root" class="dashboard-shell">
-                                    <div class="text-center text-muted py-5">
-                                        <div class="spinner-border text-dark mb-3" role="status" aria-hidden="true">
-                                        </div>
-                                        <p class="mb-0">Đang tải dữ liệu dashboard...</p>
-                                    </div>
-                                </div>
-            </main>
+        <!-- Dashboard Content -->
+        <div id="admin-dashboard-root" class="dashboard-shell admin-animate-in">
+            <div class="d-flex flex-column align-items-center justify-content-center py-5">
+                <div class="admin-spinner mb-3"></div>
+                <p class="text-muted mb-0">Đang tải dữ liệu dashboard...</p>
+            </div>
+        </div>
+    </main>
 
-            <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
 
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-                <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-                <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-                <script type="text/babel" data-presets="env,react"
-                    data-plugins="proposal-class-properties,proposal-object-rest-spread,proposal-optional-chaining,proposal-nullish-coalescing-operator"
-                    src="/js/admin/Sidebar.jsx"></script>
-                <script type="text/babel" data-presets="env,react"
-                    data-plugins="proposal-class-properties,proposal-object-rest-spread,proposal-optional-chaining,proposal-nullish-coalescing-operator"
-                    src="/js/admin/Dashboard.jsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-presets="env,react"
+        data-plugins="proposal-class-properties,proposal-object-rest-spread,proposal-optional-chaining,proposal-nullish-coalescing-operator"
+        src="/js/admin/Sidebar.jsx"></script>
+    <script type="text/babel" data-presets="env,react"
+        data-plugins="proposal-class-properties,proposal-object-rest-spread,proposal-optional-chaining,proposal-nullish-coalescing-operator"
+        src="/js/admin/Dashboard.jsx"></script>
 </body>
 
 </html>
