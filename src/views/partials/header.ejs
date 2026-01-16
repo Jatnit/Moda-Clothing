@@ -94,6 +94,29 @@
                         </a>
                         <% } %>
 
+                            <!-- Dark Mode Toggle -->
+                            <button type="button" class="btn btn-theme-toggle" id="themeToggle" 
+                                aria-label="Toggle dark mode" title="Chuyển đổi giao diện">
+                                <span class="theme-icon theme-icon-sun">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="5"></circle>
+                                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                    </svg>
+                                </span>
+                                <span class="theme-icon theme-icon-moon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+
                             <!-- Cart Button - Modern Design -->
                             <button type="button" class="btn btn-cart" id="openCartDrawer">
                                 <i class="bi bi-bag"></i>
@@ -273,4 +296,81 @@
         window.addEventListener("cart:updated", (event) => renderCart(event.detail || {}));
         window.addEventListener("cart:open", openDrawer);
     });
+</script>
+
+<script>
+    // Dark Mode Toggle
+    document.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.getElementById("themeToggle");
+        if (!themeToggle) return;
+
+        // Get current theme from body class
+        const getCurrentTheme = () => {
+            return document.body.classList.contains("theme-dark") ? "dark" : "light";
+        };
+
+        // Toggle theme with animation
+        const toggleTheme = async () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+            // Add animation class
+            themeToggle.classList.add("animating");
+
+            // Update body class immediately for smooth visual feedback
+            document.body.classList.remove(`theme-${currentTheme}`);
+            document.body.classList.add(`theme-${newTheme}`);
+            
+            // Also update html class for consistency
+            document.documentElement.classList.remove(`theme-${currentTheme}`);
+            document.documentElement.classList.add(`theme-${newTheme}`);
+
+            // Store in localStorage for instant access on next page load
+            localStorage.setItem("theme", newTheme);
+
+            // Send to server to persist preference (non-blocking)
+            try {
+                await fetch("/user/theme", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: `theme=${newTheme}`,
+                });
+            } catch (error) {
+                console.log("Theme preference saved locally only");
+            }
+
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                themeToggle.classList.remove("animating");
+            }, 500);
+        };
+
+        // Click handler
+        themeToggle.addEventListener("click", toggleTheme);
+
+        // Keyboard accessibility
+        themeToggle.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+    });
+    
+    // Apply theme from localStorage IMMEDIATELY (blocking)
+    // This runs synchronously before the rest of the page renders
+    (function() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            const bodyTheme = document.body.classList.contains("theme-dark") ? "dark" : "light";
+            if (savedTheme !== bodyTheme) {
+                document.body.classList.remove("theme-light", "theme-dark");
+                document.body.classList.add(`theme-${savedTheme}`);
+                document.documentElement.classList.remove("theme-light", "theme-dark");
+                document.documentElement.classList.add(`theme-${savedTheme}`);
+            }
+        }
+    })();
 </script>

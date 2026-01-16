@@ -789,3 +789,340 @@ body.theme-dark .order-item {
     }
 }
 
+/* ===== DARK MODE ===== */
+/* Profile Hero */
+body.theme-dark .profile-hero {
+    background: linear-gradient(135deg, #1a1a22 0%, #25252e 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-dark .profile-hero::before {
+    background: radial-gradient(ellipse, rgba(129, 140, 248, 0.2) 0%, transparent 70%);
+}
+
+body.theme-dark .role-badge {
+    background: rgba(129, 140, 248, 0.2);
+    border-color: rgba(129, 140, 248, 0.4);
+}
+
+/* Info Items */
+body.theme-dark .info-label {
+    color: #818cf8;
+}
+
+body.theme-dark .info-value {
+    color: #f0f0f3;
+}
+
+/* Action Buttons */
+body.theme-dark .btn-action {
+    background: #818cf8;
+    color: #0d0d11;
+}
+
+body.theme-dark .btn-action:hover {
+    background: #a5b4fc;
+    color: #0d0d11;
+}
+
+body.theme-dark .btn-outline-action {
+    background: transparent;
+    color: #f0f0f3;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.theme-dark .btn-outline-action:hover {
+    background: #818cf8;
+    color: #0d0d11;
+    border-color: #818cf8;
+}
+
+/* Address Items */
+body.theme-dark .address-name {
+    color: #f0f0f3;
+}
+
+body.theme-dark .address-detail {
+    color: #9898a0;
+}
+
+body.theme-dark .default-badge {
+    background: #818cf8;
+    color: #0d0d11;
+}
+
+/* Order Items */
+body.theme-dark .order-code {
+    color: #f0f0f3;
+}
+
+body.theme-dark .order-date {
+    color: #9898a0;
+}
+
+body.theme-dark .order-amount {
+    color: #f0f0f3;
+}
+
+/* Status Badges - Dark mode adjustments */
+body.theme-dark .status-badge.success {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+}
+
+body.theme-dark .status-badge.warning {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+}
+
+body.theme-dark .status-badge.info {
+    background: rgba(129, 140, 248, 0.15);
+    color: #818cf8;
+}
+
+body.theme-dark .status-badge.danger {
+    background: rgba(248, 113, 113, 0.15);
+    color: #f87171;
+}
+
+/* Order Progress */
+body.theme-dark .progress-node {
+    color: #6b6b73;
+}
+
+body.theme-dark .progress-node::before {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .progress-dot {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: #1a1a1f;
+}
+
+body.theme-dark .progress-node.completed {
+    color: #f0f0f3;
+}
+
+body.theme-dark .progress-node.completed .progress-dot {
+    background: #818cf8;
+    border-color: #818cf8;
+}
+
+body.theme-dark .progress-node.completed::before {
+    background: #818cf8;
+}
+
+body.theme-dark .progress-node.active .progress-dot {
+    border-color: #818cf8;
+}
+
+body.theme-dark .progress-node.is-cancelled {
+    color: #f87171;
+}
+
+body.theme-dark .progress-node.is-cancelled .progress-dot {
+    border-color: #f87171;
+}
+
+/* Empty State */
+body.theme-dark .empty-state {
+    color: #9898a0;
+}
+
+body.theme-dark .empty-state i {
+    color: rgba(129, 140, 248, 0.3);
+}
+
+/* Order Header */
+body.theme-dark .order-header {
+    background: linear-gradient(135deg, #1a1a22 0%, #25252e 100%);
+}
+
+body.theme-dark .order-header::before {
+    background: radial-gradient(ellipse, rgba(129, 140, 248, 0.2) 0%, transparent 70%);
+}
+
+/* Order Detail Page */
+body.theme-dark .order-hero {
+    background: linear-gradient(135deg, #0d0d11 0%, #1a1a22 100%);
+}
+
+body.theme-dark .detail-card {
+    background: #1a1a1f;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .items-table thead {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Status Tags - Dark mode */
+body.theme-dark .status-tag.success {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+}
+
+body.theme-dark .status-tag.info {
+    background: rgba(129, 140, 248, 0.15);
+    color: #818cf8;
+}
+
+body.theme-dark .status-tag.warning {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+}
+
+body.theme-dark .status-tag.danger {
+    background: rgba(248, 113, 113, 0.15);
+    color: #f87171;
+}
+
+/* Timeline */
+body.theme-dark .timeline-node {
+    color: #6b6b73;
+}
+
+body.theme-dark .timeline-node::before {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .timeline-dot {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: #1a1a1f;
+}
+
+body.theme-dark .timeline-node.completed {
+    color: #f0f0f3;
+}
+
+body.theme-dark .timeline-node.completed .timeline-dot {
+    background: #818cf8;
+    border-color: #818cf8;
+}
+
+body.theme-dark .timeline-node.active .timeline-dot {
+    border-color: #818cf8;
+}
+
+body.theme-dark .timeline-node.is-cancelled {
+    color: #f87171;
+}
+
+body.theme-dark .timeline-node.is-cancelled .timeline-dot {
+    border-color: #f87171;
+}
+
+body.theme-dark .breakdown-list li span:first-child {
+    color: #9898a0;
+}
+
+/* Review Page */
+body.theme-dark .review-hero {
+    background: linear-gradient(135deg, #1a1a22 0%, #25252e 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-dark .review-hero::before {
+    background: radial-gradient(ellipse, rgba(129, 140, 248, 0.2) 0%, transparent 70%);
+}
+
+body.theme-dark .page-title {
+    color: #f0f0f3;
+}
+
+body.theme-dark .order-info {
+    color: #9898a0;
+}
+
+body.theme-dark .deadline-notice {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(251, 191, 36, 0.1) 100%);
+    color: #fbbf24;
+}
+
+body.theme-dark .deadline-notice i {
+    color: #fbbf24;
+}
+
+body.theme-dark .product-card {
+    background: #1a1a1f;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-dark .product-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-dark .product-card.reviewed {
+    border-color: #34d399;
+}
+
+body.theme-dark .product-image {
+    background: #141418;
+}
+
+body.theme-dark .product-details h4 {
+    color: #f0f0f3;
+}
+
+body.theme-dark .product-variant {
+    color: #9898a0;
+}
+
+body.theme-dark .reviewed-badge {
+    background: #34d399;
+    color: #0d0d11;
+}
+
+body.theme-dark .rating-label {
+    color: #f0f0f3;
+}
+
+body.theme-dark .star-rating label {
+    color: #3a3a44;
+}
+
+body.theme-dark .star-rating label:hover,
+body.theme-dark .star-rating label:hover ~ label,
+body.theme-dark .star-rating input:checked ~ label {
+    color: #fbbf24;
+}
+
+body.theme-dark .comment-section textarea {
+    background: #141418;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f3;
+}
+
+body.theme-dark .comment-section textarea:focus {
+    border-color: #818cf8;
+}
+
+body.theme-dark .btn-submit-review {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    color: #0d0d11;
+}
+
+body.theme-dark .btn-submit-review:hover {
+    box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
+}
+
+body.theme-dark .btn-back {
+    color: #9898a0;
+}
+
+body.theme-dark .btn-back:hover {
+    color: #f0f0f3;
+}
+
+body.theme-dark .success-message {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.15) 0%, rgba(52, 211, 153, 0.1) 100%);
+    color: #34d399;
+}
+
+body.theme-dark .existing-review {
+    background: #141418;
+}
+
+body.theme-dark .existing-comment {
+    color: #c8c8cc;
+}

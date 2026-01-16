@@ -1,4 +1,4 @@
-/**
+    /**
  * ============================================
  * MODA PARTIALS CSS
  * Header, Footer, Cart Drawer, Navigation
@@ -120,6 +120,89 @@
     align-items: center;
     justify-content: center;
     padding: 0 5px;
+}
+
+/* Theme Toggle Button */
+.btn-theme-toggle {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--app-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btn-theme-toggle:hover {
+    background: var(--app-text);
+    color: var(--app-bg);
+    border-color: var(--app-text);
+    transform: rotate(15deg);
+}
+
+.btn-theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode: show sun, hide moon */
+body.theme-light .theme-icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+body.theme-light .theme-icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+/* Dark mode: show moon, hide sun */
+body.theme-dark .theme-icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+body.theme-dark .theme-icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Fallback for when no theme class is set */
+.theme-icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+/* Animation on click */
+@keyframes theme-toggle-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-theme-toggle.animating {
+    animation: theme-toggle-spin 0.5s ease-out;
 }
 
 /* Modern Nav Buttons */
@@ -576,4 +659,279 @@
         padding: 0.25rem;
         border-radius: 50%;
     }
+}
+
+/* ===== DARK MODE ===== */
+/* Navbar Dark Mode - Support both html.theme-dark and body.theme-dark for instant apply */
+html.theme-dark .navbar-global,
+body.theme-dark .navbar-global {
+    background: #0d0d11 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.theme-dark .navbar-global .brand-text {
+    color: #f0f0f3;
+}
+
+body.theme-dark .navbar-global .nav-link {
+    color: #c8c8cc;
+}
+
+body.theme-dark .navbar-global .nav-link:hover {
+    color: #f0f0f3;
+}
+
+body.theme-dark .navbar-global .nav-link::after {
+    background: #818cf8;
+}
+
+body.theme-dark .btn-user-menu {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-user-menu:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.theme-dark .user-avatar {
+    background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+}
+
+body.theme-dark .btn-cart {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-cart:hover {
+    background: #818cf8;
+    color: #0d0d11;
+    border-color: #818cf8;
+}
+
+body.theme-dark .btn-theme-toggle {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-theme-toggle:hover {
+    background: #818cf8;
+    color: #0d0d11;
+    border-color: #818cf8;
+}
+
+body.theme-dark .btn-nav-ghost {
+    color: #c8c8cc;
+}
+
+body.theme-dark .btn-nav-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-nav-primary {
+    background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+    color: #0d0d11;
+    box-shadow: 0 2px 8px rgba(129, 140, 248, 0.3);
+}
+
+body.theme-dark .btn-nav-primary:hover {
+    background: linear-gradient(135deg, #a5b4fc 0%, #c4b5fd 100%);
+    box-shadow: 0 4px 12px rgba(129, 140, 248, 0.4);
+}
+
+body.theme-dark .btn-outline-nav {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-outline-nav:hover {
+    background: #818cf8;
+    color: #0d0d11;
+    border-color: #818cf8;
+}
+
+/* Cart Drawer Dark Mode */
+body.theme-dark .cart-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+body.theme-dark .cart-drawer {
+    background: #1a1a1f;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-dark .cart-drawer-header {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .cart-drawer-header h5 {
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-close-cart {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-close-cart:hover {
+    background: #f87171;
+}
+
+body.theme-dark .cart-item {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .cart-item-image {
+    background: #141418;
+}
+
+body.theme-dark .cart-item-image i {
+    color: #6b6b73;
+}
+
+body.theme-dark .cart-item-name {
+    color: #f0f0f3;
+}
+
+body.theme-dark .cart-item-price .qty {
+    color: #9898a0;
+}
+
+body.theme-dark .cart-item-total {
+    color: #f0f0f3;
+}
+
+body.theme-dark .cart-empty {
+    color: #6b6b73;
+}
+
+body.theme-dark .cart-empty i {
+    color: rgba(129, 140, 248, 0.3);
+}
+
+body.theme-dark .cart-drawer-footer {
+    background: #141418;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .cart-subtotal {
+    color: #f0f0f3;
+}
+
+body.theme-dark .btn-checkout-drawer {
+    background: #818cf8;
+    color: #0d0d11;
+}
+
+body.theme-dark .btn-checkout-drawer:hover:not(:disabled) {
+    background: #a5b4fc;
+}
+
+body.theme-dark .cart-note {
+    color: #6b6b73;
+}
+
+/* Dropdown Dark Mode */
+body.theme-dark .dropdown-menu {
+    background: #1a1a1f;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-dark .dropdown-item {
+    color: #c8c8cc;
+}
+
+body.theme-dark .dropdown-item:hover {
+    background: rgba(129, 140, 248, 0.15);
+    color: #f0f0f3;
+}
+
+body.theme-dark .dropdown-header {
+    color: #6b6b73;
+}
+
+body.theme-dark .dropdown-divider {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Footer Dark Mode */
+body.theme-dark .footer-global {
+    background: #0d0d11;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .footer-brand .brand-name {
+    color: #f0f0f3;
+}
+
+body.theme-dark .footer-brand .brand-tagline {
+    color: #9898a0;
+}
+
+body.theme-dark .social-link {
+    background: rgba(255, 255, 255, 0.08);
+    color: #c8c8cc;
+}
+
+body.theme-dark .social-link:hover {
+    background: #818cf8;
+    color: #0d0d11;
+}
+
+body.theme-dark .footer-title {
+    color: #f0f0f3;
+}
+
+body.theme-dark .footer-menu a {
+    color: #9898a0;
+}
+
+body.theme-dark .footer-menu a:hover {
+    color: #818cf8;
+}
+
+body.theme-dark .contact-item {
+    color: #9898a0;
+}
+
+body.theme-dark .contact-item i {
+    color: #818cf8;
+}
+
+body.theme-dark .footer-bottom {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .copyright {
+    color: #6b6b73;
+}
+
+body.theme-dark .badge-item {
+    color: #9898a0;
+}
+
+body.theme-dark .badge-item i {
+    color: #34d399;
+}
+
+/* Navbar Collapse (Mobile) Dark Mode */
+body.theme-dark .navbar-collapse {
+    background: #1a1a1f;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-dark .nav-link {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hamburger menu icon */
+body.theme-dark .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.theme-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28240, 240, 243, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }

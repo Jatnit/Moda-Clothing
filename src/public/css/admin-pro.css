@@ -72,23 +72,37 @@
 
 /* ===== DARK MODE TOKENS ===== */
 body.theme-dark {
-  --admin-bg: #0a0a0f;
-  --admin-bg-subtle: #12121a;
-  --admin-card-bg: rgba(24, 24, 32, 0.8);
-  --admin-card-solid: #18181f;
-  --admin-text: #f8fafc;
-  --admin-text-muted: #94a3b8;
-  --admin-text-subtle: #64748b;
+  --admin-bg: #0d0d11;
+  --admin-bg-subtle: #141418;
+  --admin-card-bg: rgba(26, 26, 31, 0.85);
+  --admin-card-solid: #1a1a1f;
+  --admin-text: #f0f0f3;
+  --admin-text-muted: #9898a0;
+  --admin-text-subtle: #6b6b73;
   --admin-border: rgba(255, 255, 255, 0.08);
-  --admin-border-strong: rgba(255, 255, 255, 0.12);
+  --admin-border-strong: rgba(255, 255, 255, 0.15);
 
-  --admin-glass-bg: rgba(24, 24, 32, 0.7);
+  --admin-glass-bg: rgba(26, 26, 31, 0.75);
   --admin-glass-border: rgba(255, 255, 255, 0.1);
 
-  --admin-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
-  --admin-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --admin-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
-  --admin-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --admin-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --admin-shadow-md: 0 8px 20px rgba(0, 0, 0, 0.5);
+  --admin-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --admin-shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.65);
+
+  /* Enhanced accent colors for dark mode */
+  --admin-primary: #818cf8;
+  --admin-primary-hover: #a5b4fc;
+  --admin-primary-light: rgba(129, 140, 248, 0.15);
+
+  --admin-success: #34d399;
+  --admin-success-light: rgba(52, 211, 153, 0.15);
+  --admin-warning: #fbbf24;
+  --admin-warning-light: rgba(251, 191, 36, 0.15);
+  --admin-danger: #f87171;
+  --admin-danger-light: rgba(248, 113, 113, 0.15);
+  --admin-info: #60a5fa;
+  --admin-info-light: rgba(96, 165, 250, 0.15);
 }
 
 /* ===== ADMIN CONTENT WRAPPER ===== */

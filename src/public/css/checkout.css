@@ -457,3 +457,106 @@ body.theme-dark .summary-card {
         height: 200px;
     }
 }
+
+/* ===== DARK MODE ===== */
+body.theme-dark .page-header h1 {
+    color: #f0f0f3;
+}
+
+body.theme-dark .section-title {
+    color: #f0f0f3;
+}
+
+body.theme-dark .section-title i {
+    color: #818cf8;
+}
+
+body.theme-dark .checkout-layout .form-label {
+    color: #c8c8cc;
+}
+
+body.theme-dark .address-list .list-group-item {
+    background: #1a1a1f;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f3;
+}
+
+body.theme-dark .address-list .list-group-item:hover,
+body.theme-dark .address-list .list-group-item:has(input:checked) {
+    border-color: #818cf8;
+    background: rgba(129, 140, 248, 0.1);
+}
+
+body.theme-dark .payment-card {
+    background: #1a1a1f;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f3;
+}
+
+body.theme-dark .payment-card:hover,
+body.theme-dark .payment-card.selected {
+    border-color: #818cf8;
+}
+
+body.theme-dark .payment-card.selected {
+    background: #818cf8;
+    color: #0d0d11;
+}
+
+body.theme-dark .payment-icon {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f0f0f3;
+}
+
+body.theme-dark .payment-card.selected .payment-icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: #0d0d11;
+}
+
+body.theme-dark .qr-card {
+    border-color: rgba(129, 140, 248, 0.3);
+    background: rgba(129, 140, 248, 0.08);
+}
+
+body.theme-dark .summary-title {
+    color: #f0f0f3;
+}
+
+body.theme-dark .cart-item {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .cart-item-name {
+    color: #f0f0f3;
+}
+
+body.theme-dark .cart-item-variant {
+    color: #9898a0;
+}
+
+body.theme-dark .summary-row {
+    color: #c8c8cc;
+}
+
+body.theme-dark .summary-row.total {
+    color: #f0f0f3;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .btn-checkout {
+    background: #818cf8;
+    color: #0d0d11;
+}
+
+body.theme-dark .btn-checkout:hover {
+    background: #a5b4fc;
+    box-shadow: 0 12px 35px rgba(129, 140, 248, 0.3);
+}
+
+body.theme-dark .empty-cart i {
+    color: rgba(129, 140, 248, 0.4);
+}
+
+body.theme-dark .empty-cart h3 {
+    color: #f0f0f3;
+}

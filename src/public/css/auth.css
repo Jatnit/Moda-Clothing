@@ -302,3 +302,91 @@ body.theme-dark .auth-card .form-control {
         font-size: 1.75rem;
     }
 }
+
+/* ===== DARK MODE ===== */
+body.theme-dark .auth-wrapper {
+    background: linear-gradient(135deg, #0f0f14 0%, #1a1a22 50%, #25252e 100%);
+}
+
+body.theme-dark .auth-wrapper::before {
+    background: radial-gradient(ellipse, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+}
+
+body.theme-dark .auth-wrapper::after {
+    background: radial-gradient(ellipse, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+}
+
+body.theme-dark .brand-logo span {
+    color: #f0f0f3;
+}
+
+body.theme-dark .auth-card h2 {
+    color: #f0f0f3;
+}
+
+body.theme-dark .auth-card .subtitle {
+    color: #9898a0;
+}
+
+body.theme-dark .auth-card .form-label {
+    color: #c8c8cc;
+}
+
+body.theme-dark .auth-card .input-icon {
+    color: #9898a0;
+}
+
+body.theme-dark .auth-card .form-control:focus + .input-icon {
+    color: #818cf8;
+}
+
+body.theme-dark .auth-card .form-control::placeholder {
+    color: #6b6b73;
+}
+
+body.theme-dark .auth-card .form-check-input {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.theme-dark .auth-card .form-check-input:checked {
+    background-color: #818cf8;
+    border-color: #818cf8;
+}
+
+body.theme-dark .auth-card .form-check-label {
+    color: #9898a0;
+}
+
+body.theme-dark .btn-submit {
+    background: #818cf8;
+    color: #0d0d11;
+}
+
+body.theme-dark .btn-submit:hover {
+    background: #a5b4fc;
+    box-shadow: 0 12px 35px rgba(129, 140, 248, 0.3);
+}
+
+body.theme-dark .auth-footer {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .auth-footer p {
+    color: #9898a0;
+}
+
+body.theme-dark .auth-link {
+    color: #818cf8;
+}
+
+body.theme-dark .auth-link:hover {
+    color: #a5b4fc;
+}
+
+body.theme-dark .back-link {
+    color: #9898a0;
+}
+
+body.theme-dark .back-link:hover {
+    color: #f0f0f3;
+}

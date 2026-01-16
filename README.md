@@ -85,15 +85,23 @@ Dự án sử dụng kiến trúc **Modular CSS** với các file tách biệt t
 
 | File CSS        | Kích thước | Mô tả                                            |
 | :-------------- | :--------- | :----------------------------------------------- |
-| `main.css`      | ~8KB       | Base styles, CSS variables, typography           |
-| `auth.css`      | ~7KB       | Login, Register, Authentication pages            |
-| `client.css`    | ~24KB      | Homepage, Products list, Product detail          |
-| `checkout.css`  | ~10KB      | Checkout process, Cart, 404 Error page           |
-| `profile.css`   | ~15KB      | User profile, Orders, Order detail, Reviews      |
-| `partials.css`  | ~11KB      | Header, Footer, Navigation, Cart Drawer          |
-| `admin-pro.css` | ~18KB      | Admin Dashboard, Products, Categories, Inventory |
+| `main.css`      | ~15KB      | Base styles, CSS variables, Bootstrap overrides  |
+| `auth.css`      | ~9KB       | Login, Register, Authentication pages            |
+| `client.css`    | ~31KB      | Homepage, Products list, Product detail          |
+| `checkout.css`  | ~13KB      | Checkout process, Cart, 404 Error page           |
+| `profile.css`   | ~22KB      | User profile, Orders, Order detail, Reviews      |
+| `partials.css`  | ~18KB      | Header, Footer, Navigation, Cart Drawer          |
+| `admin-pro.css` | ~19KB      | Admin Dashboard, Products, Categories, Inventory |
 
 **Design System:** UI/UX Pro Max với Glassmorphism, modern gradients, và responsive animations.
+
+**🌓 Dark Mode System:** Hệ thống dark mode toàn diện với:
+
+- **Màu chủ đạo:** Indigo (#818cf8) với gradient tinh tế
+- **Contrast cao:** Đạt tỷ lệ 4.5:1+ cho text chính, 3:1+ cho muted text
+- **Smooth transitions:** 300ms cho tất cả các thay đổi theme
+- **Bootstrap overrides:** Tất cả components (Modal, Table, Alert, Card, Pagination, etc.)
+- **Custom components:** Hero, Product cards, Order details, Admin dashboard, etc.
 
 ---
 
